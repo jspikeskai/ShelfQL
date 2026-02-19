@@ -17,7 +17,7 @@ create table users
     account_number bigint               not null,
     email          varchar(255)         not null,
     first_name     varchar(255)         not null,
-    is_admin       tinyint(1) default 0 not null,
+    is_admin       tinyint(1) default 0 not null invisible,
     created_at     datetime             not null,
     constraint users_pk_2
         unique (account_number),

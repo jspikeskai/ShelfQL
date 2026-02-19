@@ -1,4 +1,4 @@
-package main
+package db
 
 import (
 	"database/sql"
@@ -9,7 +9,7 @@ import (
 	"github.com/go-sql-driver/mysql"
 )
 
-func createHandle() *sql.DB {
+func CreateHandle() *sql.DB {
 	var db *sql.DB
 
 	cfg := mysql.NewConfig()
@@ -45,6 +45,6 @@ func createHandle() *sql.DB {
 	return db
 }
 
-func insertData(db *sql.DB, key string) {
+func InsertData(db *sql.DB, key string) {
 	fmt.Printf("Inserting key '%s' into database.\n", key)
 }

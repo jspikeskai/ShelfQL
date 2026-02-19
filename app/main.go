@@ -2,21 +2,25 @@ package main
 
 import (
 	"ShelfQL/cmd"
-	"database/sql"
 	"log"
+
+	"github.com/joho/godotenv"
 )
 
 func main() {
+	//homeDir, _ := os.UserHomeDir()
+	//envPath := filepath.Join(homeDir, ".shelfql.env")
+	//
+	//err := godotenv.Load(envPath)
+
+	err := godotenv.Load(".env")
+	if err != nil {
+		log.Println("Warning: No .env file found, using system environment variables")
+	}
+
 	cmd.Execute()
 
-	db := createHandle()
-
-	defer func(db *sql.DB) {
-		err := db.Close()
-		if err != nil {
-			log.Printf("Error closing db connection: %v", err)
-		}
-	}(db)
-
-	insertData(db, "The Book Thief")
+	if cmd.DB != nil {
+		cmd.DB.Close()
+	}
 }

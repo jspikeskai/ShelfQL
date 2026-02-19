@@ -1,6 +1,6 @@
 LICENSE
 README.md
-db.data
+data.data
 .env
 docker-compose.yml
 .gitignore
