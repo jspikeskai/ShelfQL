@@ -7,6 +7,7 @@ import (
 	"github.com/spf13/cobra"
 )
 
+// bubble tea
 func init() {
 	rootCmd.AddCommand(loginCmd)
 }
